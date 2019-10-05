@@ -1,0 +1,5 @@
+
+administer nyan:
+  title: 'Administer the <em>Nyan cat</em> progress bar.'
+  description: 'Give this access to anyone that should be able to administer the settings to the Nyan cat progress bar.'
+  restrict access: true

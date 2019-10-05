@@ -1,0 +1,11 @@
+
+nyan.config:
+  path: '/admin/config/system/nyan'
+  defaults:
+    _form: '\Drupal\nyan\Form\NyanSettingsForm'
+    _description: 'Customize the Nyan cat progress bar to your site.'
+    _title: 'Nyan cat progress bar'
+  requirements:
+    _permission: 'administer nyan'
+  options:
+    _admin_route: TRUE

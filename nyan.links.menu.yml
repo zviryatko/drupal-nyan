@@ -1,0 +1,6 @@
+nyan.config:
+  title: 'Nyan cat progress bar'
+  route_name: nyan.config
+  parent: system.admin_config_system
+  description: 'Customize the Nyan cat progress bar to your site.'
+  weight: -20

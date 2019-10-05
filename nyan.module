@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * @file
+ * Code for the Nyan cat progress bar module.
+ */
+
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function nyan_library_info_alter(&$libraries, $extension) {
+  if ($extension == 'core' && isset($libraries['drupal.progress'])) {
+    $module_path = '/' . drupal_get_path('module', 'nyan');
+    $js_path = $module_path . '/js/progress.js';
+    $css_path = $module_path . '/css/nyan.css';
+    $libraries['drupal.progress']['js'][$js_path] = $libraries['drupal.progress']['js']['misc/progress.js'];
+    $libraries['drupal.progress']['css']['component'][$css_path] = [];
+    $config = \Drupal::config('nyan.settings');
+    $audio_path = 'base:/' . drupal_get_path('module', 'nyan') . '/audio/';
+    $libraries['drupal.progress']['drupalSettings'] = [
+      'nyan' => [
+        'audio' => [
+          'enabled' => $config->get('audio_enabled'),
+          'ogg' => Url::fromUri($audio_path . 'nyancat.ogg')->toString(),
+          'mp3' => Url::fromUri($audio_path . 'nyancat.mp3')->toString(),
+          'show_controls' => $config->get('audio_show_controls'),
+          'initial_volume' => $config->get('audio_initial_volume'),
+        ],
+      ],
+    ];
+  }
+}

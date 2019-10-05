@@ -1,0 +1,4 @@
+nyan:
+  audio_enabled: 1
+  audio_show_controls: 1
+  audio_initial_volume: "50"

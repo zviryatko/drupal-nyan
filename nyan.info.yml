@@ -1,0 +1,4 @@
+name: "Nyan cat progress bars"
+description: "Makes your progress bars 100% more awesome."
+type: module
+core: 8.x
